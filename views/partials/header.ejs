@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Pinterest</title>
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+  <% if(nav===true) { %>
+    <div class="w-full px-10 py-3 flex justify-between bg-transparent fixed top-0 left-0 z-50">
+      <h3 class="text-white py-2 text-lg font-bold">Pinterest</h3>
+      <div class="flex gap-8">
+        <a class="text-white py-2" href="/profile">Profile</a>
+        <a class="text-white py-2" href="/feed">Feed</a>
+        <a class="px-3 py-2 bg-red-700 text-white rounded-lg" href="/logout">Log Out</a>
+      </div>
+    </div>
+    <% } %>
+</body>
+
+</html>

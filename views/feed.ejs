@@ -1,0 +1,29 @@
+<% include ./partials/header.ejs %>
+
+  <!-- Main Content -->
+  <div class="feed w-full min-h-screen bg-zinc-800 text-white">
+    <main class="container mx-auto px-4 py-6 pt-[4.5rem]">
+      <!-- Feed Content -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <% posts.forEach(function(post) { %>
+          <!-- Post Card -->
+          <div class="bg-zinc-800 rounded-lg overflow-hidden shadow-md">
+            <a href="/post/<%= post._id %>" class="block">
+              <!-- Link to individual post -->
+              <img src="/images/uploads/<%= post.image %>" alt="<%= post.title %>" class="w-full h-40 object-cover" />
+              <div class="px-4 py-3">
+                <h3 class="text-lg font-semibold text-gray-100 mb-2 truncate">
+                  <%= post.title %>
+                </h3>
+                <p class="text-gray-300 leading-relaxed text-sm truncate">
+                  <%= post.description %>
+                </p>
+              </div>
+            </a>
+          </div>
+          <% }); %>
+      </div>
+    </main>
+  </div>
+
+  <% include ./partials/footer.ejs %>

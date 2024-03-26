@@ -1,0 +1,42 @@
+<% include ./partials/header.ejs %>
+
+  <!-- Main Content -->
+  <div class="add-pins-page bg-zinc-800 min-h-screen flex justify-center items-center">
+    <main class="max-w-lg w-full p-8 bg-white rounded-lg shadow-md mt-16 mb-4">
+      <h2 class="text-3xl font-semibold text-center mb-6 text-zinc-600">Add a Pin</h2>
+      <form id="addPinForm" action="/createpost" method="post" enctype="multipart/form-data">
+        <div class="mb-4">
+          <label for="pinImage" class="block text-sm font-medium text-gray-700">Pin Image:</label>
+          <div class="mt-1 flex items-center">
+            <span class="inline-block h-10 w-10 p-1 rounded-full overflow-hidden bg-gray-100">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="text-gray-500">
+                <path
+                  d="M21 15V18H24V20H21V23H19V20H16V18H19V15H21ZM21.0082 3C21.556 3 22 3.44495 22 3.9934L22.0007 13.3417C21.3749 13.1204 20.7015 13 20 13V5H4L4.001 19L13.2929 9.70715C13.6528 9.34604 14.22 9.31823 14.6123 9.62322L14.7065 9.70772L18.2521 13.2586C15.791 14.0069 14 16.2943 14 19C14 19.7015 14.1204 20.3749 14.3417 21.0007L2.9918 21C2.44405 21 2 20.5551 2 20.0066V3.9934C2 3.44476 2.45531 3 2.9918 3H21.0082ZM8 7C9.10457 7 10 7.89543 10 9C10 10.1046 9.10457 11 8 11C6.89543 11 6 10.1046 6 9C6 7.89543 6.89543 7 8 7Z">
+                </path>
+              </svg>
+            </span>
+            <input type="file" name="pinImage" id="pinImage" accept="image/*" required
+              class="ml-5 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 flex-grow" />
+          </div>
+        </div>
+        <div class="mb-4">
+          <label for="pinTitle" class="block text-sm font-medium text-gray-700">Pin Title:</label>
+          <input type="text" name="pinTitle" id="pinTitle" required
+            class="mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 block w-full" />
+        </div>
+        <div class="mb-6">
+          <label for="pinDescription" class="block text-sm font-medium text-gray-700">Pin Description:</label>
+          <textarea name="pinDescription" id="pinDescription" rows="4" required
+            class="mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 block w-full"></textarea>
+        </div>
+        <div class="flex items-center justify-center">
+          <button type="submit"
+            class="px-4 py-2 bg-red-600 hover:bg-red-700 text-white text-sm font-medium rounded-md focus:outline-none focus:bg-red-700 w-24">
+            Add Pin
+          </button>
+        </div>
+      </form>
+    </main>
+  </div>
+
+  <% include ./partials/footer.ejs %>

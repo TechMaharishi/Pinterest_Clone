@@ -1,0 +1,46 @@
+<% include ./partials/header.ejs %>
+  <div
+    class="w-full h-screen bg-[url('/images/signup_background.jpg')] bg-cover bg-center flex items-center justify-center">
+    <div class="w-96 bg-zinc-100 px-8 py-6 rounded-[30px] mt-16 shadow-md">
+      <div class="w-full flex justify-center mt-4 mb-2">
+        <svg height="40" viewBox="-3 -3 82 82" width="40" style="display: block; fill: #e60023">
+          <title>Pinterest logo</title>
+          <circle cx="38" cy="38" fill="white" r="40"></circle>
+          <path
+            d="M27.5 71c3.3 1 6.7 1.6 10.3 1.6C57 72.6 72.6 57 72.6 37.8 72.6 18.6 57 3 37.8 3 18.6 3 3 18.6 3 37.8c0 14.8 9.3 27.5 22.4 32.5-.3-2.7-.6-7.2 0-10.3l4-17.2s-1-2-1-5.2c0-4.8 3-8.4 6.4-8.4 3 0 4.4 2.2 4.4 5 0 3-2 7.3-3 11.4C35.6 49 38 52 41.5 52c6.2 0 11-6.6 11-16 0-8.3-6-14-14.6-14-9.8 0-15.6 7.3-15.6 15 0 3 1 6 2.6 8 .3.2.3.5.2 1l-1 3.8c0 .6-.4.8-1 .4-4.4-2-7-8.3-7-13.4 0-11 7.8-21 22.8-21 12 0 21.3 8.6 21.3 20 0 12-7.4 21.6-18 21.6-3.4 0-6.7-1.8-7.8-4L32 61.7c-.8 3-3 7-4.5 9.4z"
+            fill="var(--color-red-pushpin-450)" fill-rule="evenodd"></path>
+        </svg>
+      </div>
+
+      <h1 class="text-3xl text-center tracking-tighter leading-none font-semibold text-zinc-700 mb-6">
+        Welcome to Pinterest
+      </h1>
+      <form action="/login" method="post">
+        <label for="email" class="block font-medium mb-2">E-mail</label>
+        <input class="block w-full px-3 py-2 mt-2 border border-gray-300 rounded-lg" type="text" name="username"
+          placeholder="Email" />
+
+
+        <label for="password" class="block font-medium mb-2">Password</label>
+        <input class="block w-full px-3 py-2 mt-2 border border-gray-300 rounded-lg" type="password" name="password"
+          placeholder="Password" />
+        <a href="#" class="text-sm inline-block mt-2 mb-2 text-zinc-700">Forgotten your password?</a>
+
+        <button
+          class="block w-full px-3 py-2 mt-2 bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full"
+          type="submit">Log in
+        </button>
+      </form>
+
+
+      <p class="text-xs font-medium text-center text-zinc-500 mt-4 mx-auto w-3/4">
+        By continuing, you agree to Pinterest's Terms of Service; Opens a new tab
+        and acknowledge that you've read our Privacy Policy; Opens a new tab.
+        Notice at collection; Opens a new tab.
+      </p>
+      <hr class="my-2 border-gray-300">
+
+      <p class="text-center text-zinc-700 font-semibold">Not on Pinterest yet? <a href="/register">Sign up</a></p>
+    </div>
+  </div>
+  <% include ./partials/footer.ejs %>

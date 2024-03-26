@@ -1,0 +1,93 @@
+<% include ./partials/header.ejs %>
+
+  <!-- Header -->
+
+
+  <form id="uploadform" action="/fileupload" method="post" enctype="multipart/form-data">
+    <input type="file" name="image" accept="image/*" hidden />
+  </form>
+
+  <!-- Main Content -->
+  <div class="profile w-full min-h-screen bg-zinc-800 text-white">
+    <main class="container mx-auto px-4 py-6 pt-[4.5rem]">
+      <!-- Profile Info -->
+      <div class="mb-6">
+        <div class="flex items-center flex-col items-start justify-center">
+          <div class="relative">
+            <div>
+              <img src="/images/uploads/<%= user.profile_picture %>" alt="Profile Picture"
+                class="w-20 h-20 rounded-full" />
+            </div>
+            <!-- Add the Edit button here -->
+            <span
+              class="w-6 h-6 inline-block absolute bottom-0 right-0 rounded-full flex items-center justify-center bg-zinc-100 p-1 "
+              style="cursor: pointer;" id="uploadicon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="text-zinc-800">
+                <path
+                  d="M15.7279 9.57627L14.3137 8.16206L5 17.4758V18.89H6.41421L15.7279 9.57627ZM17.1421 8.16206L18.5563 6.74785L17.1421 5.33363L15.7279 6.74785L17.1421 8.16206ZM7.24264 20.89H3V16.6473L16.435 3.21231C16.8256 2.82179 17.4587 2.82179 17.8492 3.21231L20.6777 6.04074C21.0682 6.43126 21.0682 7.06443 20.6777 7.45495L7.24264 20.89Z">
+                </path>
+              </svg>
+            </span>
+            <!-- End of Edit button -->
+          </div>
+          <div class="ml-4">
+            <h2 class="text-2xl font-semibold">
+              <%= user.name %>
+            </h2>
+            <h3 class="text-sm font-light text-center">@<%= user.username %>
+            </h3>
+            <p class="text-gray-300 text-center">
+              <%= user.posts.length %> Pins
+            </p>
+            <a href="/edit"
+              class="px-2 py-2 bg-zinc-700 rounded-full text-xs font-semibold text-center ml-5 mr-5 block mt-1">Edit</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Add  -->
+      <div class="flex justify-end pb-2">
+        <a href="/add" class="text-red-500 hover:text-red-800">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-8 w-8 fill-current">
+            <path
+              d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm5 10h-4v4h-2v-4H7v-2h4V6h2v4h4v2z" />
+          </svg>
+        </a>
+      </div>
+
+      <!-- Pins -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-7 gap-6">
+
+        <% user.posts.forEach(function(post) { %>
+          <!-- Post Card -->
+          <div class="bg-zinc-800 rounded-lg overflow-hidden shadow-md">
+            <a href="/post/<%= post._id %>" class="block">
+              <!-- Link to individual post -->
+              <img src="/images/uploads/<%= post.image %>" alt="<%= post.title %>" class="w-full h-40 object-cover" />
+              <div class="px-4 py-1">
+                <h3 class="text-lg font-semibold text-slate-100">
+                  <%= post.title %>
+                </h3>
+                <p class="text-slate-300">
+                  <%= post.description %>
+                </p>
+              </div>
+            </a>
+          </div>
+          <% }); %>
+      </div>
+    </main>
+  </div>
+  <script>
+    // Add event listener for click on the icon
+    document.querySelector('#uploadicon').addEventListener('click', function () {
+      document.querySelector('#uploadform input').click();
+    });
+
+    // Add event listener for change on the file input
+    document.querySelector('#uploadform input').addEventListener('change', function () {
+      document.querySelector('#uploadform').submit();
+    });
+  </script>
+
+  <% include ./partials/footer.ejs %>
